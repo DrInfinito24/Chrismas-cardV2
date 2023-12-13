@@ -174,6 +174,7 @@ class House{
             this.good = true
         }
         this.clicked = false
+        this.speed = 5
     }
 
     mouseCheck(){
@@ -184,12 +185,14 @@ class House{
                     this.clicked = true
                     score += 10
                     this.presentSize = 100
+                    goodsfx.play()
                 }
                 else{
                     //gameover = true
                     this.clicked = true
                     this.presentSize = 100
                     //main = false
+                    badsfx.play()
                 }
             }
         }
@@ -335,6 +338,8 @@ function setup(){
      Snowy = new Snowman()
      tree1 = new Tree()
      tree2 = new Tree()
+     mainmusic.play()
+     mainmusic.loop()
 }
 
 function draw(){
@@ -355,7 +360,7 @@ function draw(){
         text("the naughty ones!",35,400)
         fill(0)
         text("Press any key!",70,480)
-        startmusic.play()
+
     }
     else if(main === true){
         background(255)
@@ -426,7 +431,8 @@ function keyTyped(){
         Snowy.reset()
         tree1.reset()
         tree2.reset()
-
+        startsfx.play()
+        startsfx.setVolume(1)
         score = 0
         
     }
